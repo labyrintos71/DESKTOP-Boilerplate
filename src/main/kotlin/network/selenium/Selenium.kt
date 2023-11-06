@@ -1,9 +1,11 @@
 package network.selenium
 
+import com.sun.jna.platform.win32.User32
 import file.FileIO
 import org.openqa.selenium.By
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
+import winapi.WIN32Handle
 import java.io.File
 
 class Selenium {
@@ -28,6 +30,7 @@ class Selenium {
         val downloader: AjaxFileDownloader = AjaxFileDownloader(driver)
         try {
             driver.get("https://cosplaytele.com/shipper/")
+            User32.INSTANCE.CloseWindow(User32.INSTANCE.GetForegroundWindow())
 
             //유저에이전트 가져오는 소스
             // println(driver.executeScript("return navigator.userAgent"))
@@ -36,7 +39,7 @@ class Selenium {
             title = title.substring(0, title.lastIndexOf("photo"))
             title = title.substring(0, title.lastIndexOf('-')).replace(" ", "")
             println(title)
-
+/*
             //폴더 생성
             //Files.createDirectory(Paths.get("c:\\Workspace\\${title}"))
             val resultMkdir: Boolean = File("c:\\Workspace\\${title}").mkdir()
@@ -47,16 +50,16 @@ class Selenium {
                 println(item.findElement(By.tagName("a")).getAttribute("href"))
                 FileIO().writeByInputStream(
                     downloader.download(imglist.get(0).findElement(By.tagName("a")).getAttribute("href")),
-                    "C:\\Workspace\\${title}\\${title}_${index+1}.webp"
+                    "C:\\Workspace\\${title}\\${title}_${index + 1}.webp"
                 )
             }
-
+*/
 
 //        val doc: WebElement = driver.findElement(
 //            By.xpath("/html/body/div[2]/section/div/div[2]/div[2]/div/div/div[2]/div/div[5]/div[1]/div/div/div[1]/div")
 //        )
             //scroll
-                //.execute_script("window.scrollTo(0, 700)")
+            //.execute_script("window.scrollTo(0, 700)")
 
             //페[이지이동
             //get,navigate().to

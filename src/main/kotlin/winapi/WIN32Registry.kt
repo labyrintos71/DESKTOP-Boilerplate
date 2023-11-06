@@ -28,7 +28,7 @@ class WIN32Registry {
             timeout.toLong() and 0xFFFFFFFFL
         )
     }
-    
+
     fun write(value: String){
         // Create a key and write a string 생성
         Advapi32Util.registryCreateKey(WinReg.HKEY_CURRENT_USER, "SOFTWARE\\~~")
