@@ -5,6 +5,7 @@ import com.sun.jna.Pointer
 import com.sun.jna.platform.win32.User32
 import com.sun.jna.platform.win32.WinDef
 import com.sun.jna.platform.win32.WinUser
+import io.ktor.util.*
 
 class WIN32Handle {
 
@@ -22,9 +23,7 @@ class WIN32Handle {
                 }
                 val clsName = getClassNameFromHandle(hWnd)
                 if (clsName.isNotEmpty()) {
-                    var str = "";
-                    str = "index : ${++count}, 클래스네임 : $clsName, 텍스트 : $wText"+'\n'+"위치 : ${rectangle.left},${rectangle.top},${rectangle.right},${rectangle.bottom},"
-
+                    val str ="index : ${++count}, 클래스네임 : $clsName, 텍스트 : $wText" + '\n' + "위치 : ${rectangle.left},${rectangle.top},${rectangle.right},${rectangle.bottom},"
                     println(str)
 
                 }
