@@ -10,7 +10,7 @@ class KeyHooker : NativeKeyListener {
     override fun nativeKeyPressed(e: NativeKeyEvent) {
         println("Key Pressed: " + NativeKeyEvent.getKeyText(e.keyCode))
 
-        if (e.keyCode === NativeKeyEvent.VC_ESCAPE) {
+        if (e.keyCode == NativeKeyEvent.VC_ESCAPE) {
             try {
                 GlobalScreen.unregisterNativeHook()
             } catch (nativeHookException: NativeHookException) {
