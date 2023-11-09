@@ -14,6 +14,7 @@ class HookTest {
             System.err.println(ex.message)
             exitProcess(1)
         }
+        // GlobalScreen.addNativeMouseMotionListener(MouseHooker())
         GlobalScreen.addNativeMouseListener(MouseHooker())
         GlobalScreen.addNativeKeyListener(KeyHooker())
     }

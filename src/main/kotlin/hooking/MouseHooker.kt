@@ -1,9 +1,10 @@
 package hooking
 
 import com.github.kwhat.jnativehook.mouse.NativeMouseEvent
+import com.github.kwhat.jnativehook.mouse.NativeMouseInputListener
 import com.github.kwhat.jnativehook.mouse.NativeMouseListener
 
-class MouseHooker : NativeMouseListener {
+class MouseHooker : NativeMouseInputListener {
     override fun nativeMouseClicked(e: NativeMouseEvent) {
         println("Mouse Clicked: " + e.clickCount)
     }
@@ -16,11 +17,11 @@ class MouseHooker : NativeMouseListener {
         println("Mouse Released: " + e.button)
     }
 
-    fun nativeMouseMoved(e: NativeMouseEvent) {
+    override fun nativeMouseMoved(e: NativeMouseEvent) {
         println("Mouse Moved: " + e.x + ", " + e.y)
     }
 
-    fun nativeMouseDragged(e: NativeMouseEvent) {
+    override fun nativeMouseDragged(e: NativeMouseEvent) {
         println("Mouse Dragged: " + e.x + ", " + e.y)
     }
 }
