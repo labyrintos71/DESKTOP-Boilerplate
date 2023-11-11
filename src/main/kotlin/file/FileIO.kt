@@ -2,6 +2,8 @@ package file
 
 import java.io.File
 import java.io.InputStream
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.Arrays
 
 class FileIO {
@@ -39,6 +41,10 @@ class FileIO {
 
     fun copyFile(originPath: String, copyPath: String) {
         File(originPath).copyTo(File(copyPath))
+    }
+
+    fun createDir(path: String) {
+        Files.createDirectories(Paths.get(path))
     }
 
 }
