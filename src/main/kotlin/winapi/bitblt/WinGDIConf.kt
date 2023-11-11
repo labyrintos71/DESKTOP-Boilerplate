@@ -1,4 +1,4 @@
-package bitblt
+package winapi.bitblt
 
 interface WinGDIConf {
     companion object {

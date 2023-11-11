@@ -1,4 +1,4 @@
-package bitblt
+package winapi.bitblt
 
 import com.sun.jna.Native
 import com.sun.jna.Pointer
@@ -85,4 +85,4 @@ class BitBlt {
         return String(c).trim { it <= ' ' }
     }
 }
-}
+
